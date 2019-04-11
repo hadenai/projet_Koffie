@@ -17,7 +17,7 @@ class ArticleController extends AbstractController
         $articleManager = new ArticleManager();
         $articles = $articleManager->selectAll();
 
-        return $this->twig->render('/Products/index.html.twig',[
+        return $this->twig->render('/Products/index.html.twig', [
             'articles' => $articles
         ]);
     }

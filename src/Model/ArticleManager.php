@@ -8,13 +8,12 @@
 
 namespace App\Model;
 
-
 class ArticleManager extends AbstractManager
 {
     const TABLE = 'article';
 
     public function __construct()
     {
-        parent::__construct(SELF::TABLE);
+        parent::__construct(self::TABLE);
     }
 }

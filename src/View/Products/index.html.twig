@@ -1,5 +1,8 @@
 {% extends 'layout.html.twig' %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/product.css">
+{% endblock %}
 
 {% block title %}
     ARTICLES & PRODUITS
@@ -9,21 +12,19 @@
 {%  block content %}
     <div class = 'container'>
         <div class = "row">
-            <div class = "col-sm">
-                {% for article in articles %}
-                    <div class="col-4">
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{app.request.basepath}}/assets/images/photos_cafe/{{article.photo}}" class="card-img-top" alt="monimg" />
-                            <div class="card-body">
-                                <h5 class="card-title">{{ article.titre }}</h5>
-                                <p class="card-text">{{ article.detail }}
-                                   </p>
-                                <a href="#" class="btn btn-primary">more</a>
-                            </div>
+            {% for article in articles %}
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{app.request.basepath}}/assets/images/photos_cafe/{{article.photo}}" class="card-img-top" alt="monimg" />
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.titre }}</h5>
+                            <p class="card-text">{{ article.detail }}
+                            </p>
+                            <a href="#" class="align-self-end btn btn-lg btn-block btn-primary">more</a>
                         </div>
                     </div>
-                {%  endfor %}
-            </div>
+                </div>
+            {%  endfor %}
         </div>
     </div>
 {%  endblock content %}
