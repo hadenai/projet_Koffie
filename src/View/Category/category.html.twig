@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10 offset-1">
+                <ul class="nav d-flex justify-content-around bg-light">
+                    {% for category in categories %}
+                        <li class="nav-item">
+                            <a class="nav-link text-dark pt-3 pb-3" href="#">{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
