@@ -12,7 +12,8 @@
         "php" : ">=7.2",
         "ext-pdo" : "*",
         "twig/twig": "^2.4",
-        "avbdr/php-bootstrap-form": "^4.0"
+        "avbdr/php-bootstrap-form": "^4.0",
+        "swiftmailer/swiftmailer": "^6.0"
     },
     "require-dev": {
         "phpro/grumphp": "^0.15.0",

@@ -3,6 +3,8 @@
 
 namespace App\Controller;
 
+use App\Model\AddContactManager;
+
 class AddContactController extends AbstractController
 {
     public function index()
@@ -31,6 +33,14 @@ class AddContactController extends AbstractController
                 $yourMessageError = 'Your message is empty';
             }
             if ($error === false) {
+                $addContactManager = new AddContactManager();
+                $contact = [
+                    'firstname' => $_POST['firstname'],
+                    'lastname' => $_POST['lastname'],
+                    'email' => $_POST['email'],
+                    'yourmessage' => $_POST['yourmessage'],
+                ];
+                $id = $addContactManager->insert($contact);
                 header('Location:/');
             }
         }

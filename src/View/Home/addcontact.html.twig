@@ -9,30 +9,30 @@
             <form action="" method="post" class="col-12">
                 <div class="form-group">
                     <label for="firstname">First-name </label>
-                    <input name="firstname" type="text" id="firstname" class="form-control">
+                    <input name="firstname" type="text" id="firstname" class="form-control {% if firstNameError is defined %}{{'is-invalid'}}{% endif %} ">
+                    <div class="text-danger"> {{ firstNameError }} </div>
                     {% if firstNameError is defined %}
-                        {{ firstNameError }}
                     {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="lastname">Last-name </label>
-                    <input name="lastname" type="text" id="lastname" class="form-control">
+                    <input name="lastname" type="text" id="lastname" class="form-control {% if lastNameError is defined %}{{'is-invalid'}}{% endif %} ">
+                    <div class="text-danger"> {{ lastNameError }} </div>
                     {% if lastNameError is defined %}
-                        {{ lastNameError }}
                     {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="email">Email </label>
-                    <input name="email" type="text" id="email" class="form-control">
+                    <input name="email" type="text" id="email" class="form-control {% if emailError is defined %}{{'is-invalid'}}{% endif %}  ">
+                    <div class="text-danger">  {{ emailError }} </div>
                     {% if emailError is defined %}
-                        {{ emailError }}
                     {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="yourmessage">Your-message</label>
-                    <textarea name="yourmessage" id="yourmessage" rows="3" class="form-control"></textarea>
+                    <textarea name="yourmessage" id="yourmessage" rows="3" class="form-control {% if yourMessageError is defined %}{{'is-invalid'}}{% endif %} "></textarea>
+                    <div class="text-danger">  {{ yourMessageError }} </div>
                     {% if yourMessageError is defined %}
-                        {{ yourMessageError }}
                     {% endif %}
                     <button class="btn btn-success mt-3" type="submit">Submit form</button>
                 </div>
