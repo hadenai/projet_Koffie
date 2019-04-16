@@ -9,8 +9,9 @@
 
 namespace App\Controller;
 
-use Twig_Loader_Filesystem;
-use Twig_Environment;
+use Twig\Environment;
+use Twig\Extension\DebugExtension;
+use Twig\Loader\FilesystemLoader;
 
 /**
  *
@@ -18,7 +19,7 @@ use Twig_Environment;
 abstract class AbstractController
 {
     /**
-     * @var Twig_Environment
+     * @var Environment
      */
     protected $twig;
 
@@ -28,14 +29,14 @@ abstract class AbstractController
      */
     public function __construct()
     {
-        $loader = new Twig_Loader_Filesystem(APP_VIEW_PATH);
-        $this->twig = new Twig_Environment(
+        $loader = new FilesystemLoader(APP_VIEW_PATH);
+        $this->twig = new Environment(
             $loader,
             [
                 'cache' => !APP_DEV,
                 'debug' => APP_DEV,
             ]
         );
-        $this->twig->addExtension(new \Twig_Extension_Debug());
+        $this->twig->addExtension(new DebugExtension());
     }
 }
