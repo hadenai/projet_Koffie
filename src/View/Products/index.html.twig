@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block stylesheet %}
-<link rel="stylesheet" href="/assets/css/product.css">
+    <link rel="stylesheet" href="/assets/css/product.css">
 {% endblock %}
 
 {% block title %}
@@ -10,16 +10,19 @@
 
 
 {%  block content %}
-    <div class = 'container'>
+{% include 'Category/category.html.twig' with categories %}
+    <div class = "container">
         <div class = "row">
-            {% for article in articles %}
+            {% for product in products %}
                 <div class="col">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{app.request.basepath}}/assets/images/photos_cafe/{{article.photo}}" class="card-img-top" alt="monimg" />
+                        <img src="{{app.request.basepath}}/assets/images/photos_cafe/{{product.image}}" class="card-img-top" alt="monimg" />
                         <div class="card-body">
-                            <h5 class="card-title">{{ article.titre }}</h5>
-                            <p class="card-text">{{ article.detail }}
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            {% for categorie in categories if categorie.id == product.id %}
+                            <p class="card-text">{{ categorie.name }}
                             </p>
+                            {% endfor %}
                             <a href="#" class="align-self-end btn btn-lg btn-block btn-primary">more</a>
                         </div>
                     </div>

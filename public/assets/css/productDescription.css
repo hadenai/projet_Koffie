@@ -1,0 +1,12 @@
+.img1 {
+    width: 35em;
+    height: 25em;
+    object-fit: cover;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+}
+.container{
+    display:flex;
+
+}
