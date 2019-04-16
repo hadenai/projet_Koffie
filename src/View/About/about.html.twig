@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+{%block stylesheet %}
+    <link rel="stylesheet" type="text/css" href='/assets/css/style.css'>
+{% endblock %}
+
+{% block content %}
+    <div class="container no-padding">
+        <div class="ct1">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade bd-example" data-ride="carousel">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../assets/images/logo/car1.jpg" class="d-block w-100" alt="oizu">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../assets/images/logo/car2.jpg" class="d-block w-100" alt="ij">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../assets/images/logo/car3.jpg" class="d-block w-100" alt="ij">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="../assets/images/logo/car4.jpg" class="d-block w-100" alt="ih">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+{% endblock content %}
