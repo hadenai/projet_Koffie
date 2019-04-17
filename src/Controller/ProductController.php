@@ -7,7 +7,7 @@ use App\Model\ProductManager;
 
 class ProductController extends AbstractController
 {
-    public function index()
+    public function list()
     {
         $productManager = new ProductManager();
         $products = $productManager->selectAll();
@@ -21,5 +21,15 @@ class ProductController extends AbstractController
             'categories' => $categories
 
             ]);
+    }
+    public function show(int $id)
+    {
+        $productManager = new ProductManager();
+        $productDescription = $productManager->selectOneById($id);
+
+        return $this->twig->render('Products/productDescription.html.twig', [
+            'description' => $productDescription
+
+        ]);
     }
 }

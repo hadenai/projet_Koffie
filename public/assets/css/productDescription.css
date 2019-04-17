@@ -1,12 +1,16 @@
-.img1 {
-    width: 35em;
-    height: 25em;
-    object-fit: cover;
-    margin-top: 2em;
-    margin-bottom: 2em;
-
+.card-img{
+    width :30vw;
+    height :20vw;
 }
-.container{
-    display:flex;
-
+.img_map{
+    width:80vw;
+    height:20vw;
+}
+.btn1{
+    position: relative;
+    left: 28vw;
+}
+.btn2{
+    position: relative;
+    left: 35vw;
 }

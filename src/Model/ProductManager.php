@@ -11,12 +11,11 @@ class ProductManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-
-
-    public function selectProductWithCategoryName()
+    public function selectOneById(int $id)
     {
-        $statement = $this->pdo->query("SELECT * FROM  
-        $this->table  JOIN category ON product.category_id = category.id");
-        return $statement->fetchAll();
+        $statement = $this->pdo->query("SELECT * FROM product WHERE id=$id");
+
+        return $statement->fetch();
     }
+
 }

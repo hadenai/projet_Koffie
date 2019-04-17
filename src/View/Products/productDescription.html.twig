@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/productDescription.css">
+{% endblock %}
+
+{% block title %}
+    Product description
+{% endblock  %}
+
+{%  block content %}
+    <div class = "container ">
+        <div class ="row">
+            <div class="card mb-4 mt-5 border-0 ">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{{app.request.basepath}}/assets/images/photos_cafe/{{description.image}}" class="card-img" alt="photo_product">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <p class="card-text float-right">{{ description.name }} </br></br> acidity : {{ description.acidity }} </br></br>caffeine : {{ description.caffeine }} </br></br>flavor : {{ description.flavor }} </br></br> origin : {{ description.origin }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class ="container mb-5">
+        <button type="button" class="btn1 btn-outline-primary ">add to cart</button>
+        <button type="button" class="btn2 btn-outline-primary ">like 25K</button>
+    </div>
+    <div class ="container">
+        <div class ="row">
+            <div class="card mt-5 border-0">
+                <div class="row no-gutters">
+                    <div class="col-md-8">
+                        <h5 class="card-title">MAP</h5>
+                        <p class="card-text">texte explicatif</p>
+                    </div>
+                    <img class="col-md-4 img_map" src="/assets/images/map_country/costa-rica.jpg {#product.map_image à utiliser ici#}" alt="sans"/>
+                </div>
+            </div>
+         </div>
+    </div>
+{% endblock %}
