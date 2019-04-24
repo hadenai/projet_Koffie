@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+<div class="card mb-3" style="max-width: 1040px; margin-left:150px; margin-top:10px;">
+  <img src="{{app.request.basepath}}/assets/images/photos_cafe/{{coffies.image}}" style="max-width: 545px;"/>
+   <img src="{{app.request.basepath}}/assets/images/photos_cafe/{{coffies.imageA}}" style="max-width: 265px; margin-top:-350px; margin-left:550px;"/>
+    <img src="{{app.request.basepath}}/assets/images/photos_cafe/{{coffies.imageB}}" style="max-width: 252px; margin-top:10px; margin-left:550px;"/>
+  <div class="card-body">
+    <h1 class="card-title"><h1>{{coffies.name }} Coffies</h1></h1>
+    <p class="card-text">{{ coffies.details}}</p>
+
+    <p class="card-text"><strong>More description: </strong> </br> </br>{{ coffies.more}}</p>
+    <p class="card-text"><strong>Price: </strong>{{ coffies.price}}</p>
+
+    {% for cat in category if cat.id == coffies.category_id %}
+          <p class=“card-text”><strong>Category:</strong> {{ cat.name }}</p>
+    {% endfor %}
+
+    <p class="card-text" style="max-width: 545px; margin-top:30px;"><strong>Provenance: </strong>{{ coffies.origin}}<img src="{{app.request.basepath}}/assets/images/map_country/{{coffies.imageOrigin}}" style="max-width: 545px; margin-top:80px; margin-bottom:50px;  margin-left:150px;"/></p>
+
+    <a href="/coffies/index" class="btn btn-primary">Back</a>
+    <a href="/coffies/delete/{{ coffies.id }}" class="btn btn-primary">Delete</a>
+  </div>
+</div>
+{% endblock %}
+ {% block stylesheet %}
+    <link rel="icon" href="/assets/images/koffie-logo.png">
+{% endblock %}

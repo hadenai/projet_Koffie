@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+ <h1>Coffee of moments</h1>
+ <div>
+ 	<a href="/coffies/add" class="btn btn-primary">Ajouter</a>
+    <a href="/coffies/showByCat/{{ coffies.id }}" class="btn btn-primary">By</a>
+ </div>
+{% for coff in coffies%}
+
+<div class="card mb-3" style="max-width: 1040px; margin-top:20px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{app.request.basepath}} /assets/images/photos_cafe/{{coff.image}}" class="card-img" alt=""  style="max-width: 745px;" /></a>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+       <a href="/coffies/show/{{ coff.id }}"><h5 class="card-title">{{ coff.id }}. {{ coff.name }}</h5></a>
+        <p class="card-text">{{coff.details}}</p>
+
+      {% for cat in category if cat.id == coff.category_id %}
+          <p class=“card-text”><strong>Category:</strong> {{ cat.name }}</p>
+        {% endfor %}
+
+        <a href="/coffies/show/{{ coff.id }}" class="btn btn-primary">More</a>
+        <a href="/coffies/delete/{{coff.id }}" class="btn btn-primary">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+    
+   {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+{% endblock %}
+
+

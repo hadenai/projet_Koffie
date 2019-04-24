@@ -17,5 +17,4 @@ class ProductManager extends AbstractManager
 
         return $statement->fetch();
     }
-
 }

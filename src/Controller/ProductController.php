@@ -19,7 +19,6 @@ class ProductController extends AbstractController
         return $this->twig->render('Products/index.html.twig', [
             'products' => $products,
             'categories' => $categories
-
             ]);
     }
     public function show(int $id)

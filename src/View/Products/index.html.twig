@@ -11,24 +11,28 @@
 
 {%  block content %}
 
-{% include 'Category/category.html.twig' with categories %}
-    <div class = "container">
-        <div class = "row">
-            {% for product in products %}
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{app.request.basepath}}/assets/images/photos_cafe/{{product.image}}" class="card-img-top" alt="monimg" />
-                        <div class="card-body">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            {% for categorie in categories if categorie.id == product.id %}
-                            <p class="card-text">{{ categorie.name }}
-                            </p>
-                            {% endfor %}
-                            <a href="#" class="align-self-end btn btn-lg btn-block btn-primary">more</a>
+    {#block d'affichage de cards pour la page list products %}#}
+
+    {% include 'Category/category.html.twig' with categories %}
+        <div class = "container">
+            <div class = "row">
+                {% for product in products %}
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{app.request.basepath}}/assets/images/photos_cafe/{{product.image}}" class="card-img-top" alt="monimg" />
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+
+                                <!--boucle pour afficher le nom des catégories sur les cards-->
+                                {% for categorie in categories if categorie.id == product.category_id %}
+                                <p class="card-text">{{ categorie.name }}
+                                </p>
+                                {% endfor %}
+                                <a href="Product/productDescription.html.twig" class="align-self-end btn btn-lg btn-block btn-primary">more</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {%  endfor %}
+                {%  endfor %}
+            </div>
         </div>
-    </div>
 {%  endblock content %}

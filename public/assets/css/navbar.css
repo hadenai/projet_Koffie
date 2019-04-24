@@ -1,34 +1,20 @@
-.Login{
-
-    background-color: #916808;
-    color: #fff;
-    padding: 6px 25px;
-    border: none;
-    border-radius: 40px;
-}
-.panier{
-    position: absolute;
-    width: 2px;
-    margin-top: 25px;
-    margin-left: 340px;
-
-}
-
-.brand{
-
-    margin-top:20px;
-}
-
-.icon{
-    margin-top:-80px;
-    margin-left: 120px;
-}
-
-a{
-    color: red;
-}
-
-body{
+header {
     font-family: 'PT Sans', sans-serif;
 }
 
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .09);
+}
+
+.basket {
+    height: 30px;
+}
+
+.login {
+    background-color: #916808;
+    color: #fff;
+    padding: 4px 20px;
+    border: none;
+    border-radius: 40px;
+}

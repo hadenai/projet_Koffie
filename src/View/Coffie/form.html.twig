@@ -1,0 +1,90 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                {% block title %}<h1>ADD ARTICLE</h1>{% endblock %}     
+            </div>
+{% block content %}
+                <div class="panel-body">
+                    <form action="" method="post">
+                    <input type="hidden" value="{{ coffies.id }}" name="id">
+                        <div class="form-group">
+                            <label for="name-input">Name<span class="text-danger">*</span></label>
+                            <input type="text" value="{{ coffies.name }}" name="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                           <label for="image-input">Image<span class="text-danger">*</span></label>
+                           <input type="file"value="{{ coffies.image }}" name="image" class="form-control">
+                        </div>
+                        <div>
+                        <label for="category_id-input">Categorie<span class="text-danger">*</span></label>
+                        <select class="form-control" name="category_id">
+                            {% for cat in category%}
+                            <option name="category_id" value="{{ cat.id }}">{{ cat.name }}</option>
+                            {% endfor %}
+                        </select>
+                        </div>                        
+                        <div class="form-group">
+                            <label for="details-input">Brief Details<span class="text-danger">*</span></label>
+                            <textarea type="text" class="form-control" name="details" class="form-control">{{ coffies.details }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="price-input">Price<span class="text-danger">*</span></label>
+                            <input type="text" value="{{ coffies.price }}" name="price" placeholder=" 25$" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="more-input">More details<span class="text-danger">*</span></label>
+                            <textarea type="text" class="form-control" name="more" class="form-control">{{ coffies.more }}</textarea>
+                        </div>
+
+
+
+                         <div class="form-group">
+                           <label for="imageA-input">Image of description 1<span class="text-danger">*</span></label>
+                           <input type="file"value="{{ coffies.imageA }}" name="imageA" class="form-control">
+                        </div>
+                         <div class="form-group">
+                           <label for="imageB-input">Image of description 2<span class="text-danger">*</span></label>
+                           <input type="file"value="{{ coffies.imageB }}" name="imageB" class="form-control">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="acidity-input">Acidity<span class="text-danger">*</span></label>
+                            <input type="text" value="{{ coffies.acidity }}" name="acidity" placeholder=" Moyenne" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="caffeine-input">Caffeine<span class="text-danger">*</span></label>
+                            <input type="text" value="{{ coffies.caffeine }}" name="caffeine" placeholder=" 5%" class="form-control">
+                        </div>
+                        <div class="form-group">
+                           <label for="flavor-input">Flavor<span class="text-danger">*</span></label>
+                           <input type="text" value="{{ coffies.flavor }}" name="flavor" class="form-control">
+                        </div>
+                        <div class="form-group">
+                             <label for="origin-input">Origin<span class="text-danger">*</span></label>
+                             <input type="text" value="{{ coffies.origin }}" name="origin" class="form-control">
+                        </div>
+                        <div class="form-group">
+                           <label for="imageOrigin-input">Image of origin<span class="text-danger">*</span></label>
+                           <input type="file"value="{{ coffies.imageOrigin }}" name="imageOrigin" class="form-control">
+                        </div>
+                        <input type="hidden" name="csrf_token" value="<?php echo App\Utility\Token::generate(); ?>" />
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+           {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% block stylesheet %}<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">{% endblock %}
+
+

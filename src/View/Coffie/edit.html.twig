@@ -1,0 +1,6 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Edit coffies {{coffies.name}}</h1><a href="/coffies/index"><button type="submit" class="btn btn-primary">Back</button></a>
+    {% include 'Coffie/form.html.twig' %}
+{% endblock %}
