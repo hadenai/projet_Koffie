@@ -1,4 +1,7 @@
 {% extends "layout.html.twig" %}
+{%block stylesheet %}
+    <link rel="stylesheet" type="text/css" href='/assets/css/card.css'>
+{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -33,16 +36,17 @@
             <div class="row no-gutters">
                 <div class="col-md-7">
                     <div class="card-body">
-                        <p class="card-text"> Haec igitur prima lex amicitiae sanciatur, ut ab amicis honesta petamus, amicorum causa honesta faciamus,
-                            ne exspectemus quidem, dum rogemur; studium semper adsit, cunctatio absit; consilium vero dare audeamus libere.
-                            non benevolentiae neque caritatis, minimumque virium, ita amicitias </p>
+                        <div class="card1">
+                            <p class="card-text"> Haec igitur prima lex amicitiae sanciatur, ut ab amicis honesta petamus, amicorum causa honesta faciamus,
+                                ne exspectemus quidem, dum rogemur; studium semper adsit, cunctatio absit; consilium vero dare audeamus libere.
+                                non benevolentiae neque caritatis, minimumque virium, ita amicitias </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <img src="https://image.noelshack.com/fichiers/2019/16/3/1555503839-a-l-interieur-accueillir-amis-1331971.jpg" class="card-img" alt="...">
+                    <div class="col-md-4">
+                        <img src="https://image.noelshack.com/fichiers/2019/16/3/1555503839-a-l-interieur-accueillir-amis-1331971.jpg" class="card-img" alt="...">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 {% endblock %}
