@@ -9,7 +9,6 @@
 
 namespace App\Model;
 
-use App\Model\CoffiesManager;
 use App\Model\CategoryManager;
 
 /**
