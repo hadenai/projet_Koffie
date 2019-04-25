@@ -41,7 +41,7 @@ class AddContactController extends AbstractController
                     'yourmessage' => $_POST['yourmessage'],
                 ];
                 $id = $addContactManager->insert($contact);
-                header('Location:/');
+                header('Location:Home/contact.html.twig');
             }
         }
         return $this->twig->render('Home/addcontact.html.twig', [

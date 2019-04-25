@@ -1,0 +1,20 @@
+.container {
+    font-family: 'PT Sans', sans-serif;
+}
+.ct1{
+    font-weight: bold;
+    margin-bottom: 90px;
+    padding-left: 5px;
+}
+.ct2{
+    margin-bottom: 55px;
+}
+.card{
+    border:none !important;
+}
+.border {
+    border: 1px solid #191919 !important;
+    margin-right: 15px;
+    font-size: 45px;
+}
+
