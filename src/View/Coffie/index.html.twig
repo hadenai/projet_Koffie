@@ -17,6 +17,7 @@
       <div class="card-body">
        <a href="/coffies/show/{{ coff.id }}"><h5 class="card-title">{{ coff.id }}. {{ coff.name }}</h5></a>
         <p class="card-text">{{coff.details}}</p>
+          <p class="card-text">{{coff.created_at}}</p>
 
       {% for cat in category if cat.id == coff.category_id %}
           <p class=“card-text”><strong>Category:</strong> {{ cat.name }}</p>

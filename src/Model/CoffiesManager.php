@@ -47,9 +47,9 @@ class CoffiesManager extends AbstractManager
     {
         // prepared request
         $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`, `image`, `details`, `acidity`,
-    `caffeine`, `flavor`, `origin`,  `more`,  `price`,  `imageOrigin`, `imageA`, `imageB`, `category_id`) 
-        VALUES (:name, :image, :details, :acidity, :caffeine, :flavor, :origin, :more, :price, :imageOrigin, :imageA,
-         :imageB, :category_id)");
+ `caffeine`, `flavor`, `origin`,  `more`,  `price`,  `imageOrigin`, `imageA`, `imageB`, `category_id`, `created_at`)
+  VALUES (:name, :image, :details, :acidity, :caffeine, :flavor, :origin, :more, :price, :imageOrigin, :imageA,
+   :imageB, :category_id, NOW())");
         $statement->bindValue('name', $coffies['name'], \PDO::PARAM_STR);
         $statement->bindValue('image', $coffies['image'], \PDO::PARAM_STR);
         $statement->bindValue('details', $coffies['details'], \PDO::PARAM_STR);
