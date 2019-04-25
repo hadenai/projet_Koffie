@@ -8,14 +8,15 @@
  */
 
 namespace App\Controller;
-use App\Model\coffiesManager;
-use App\Model\categoryManager;
+
+use App\Model\CoffiesManager;
+use App\Model\CategoryManager;
 
 /**
  * Class coffiesController
  *
  */
-class coffiesController extends AbstractController
+class CoffiesController extends AbstractController
 {
 
     /**
@@ -29,10 +30,10 @@ class coffiesController extends AbstractController
     public function index()
     {
 
-        $coffiesManager = new coffiesManager();
+        $coffiesManager = new CoffiesManager();
         $coffies = $coffiesManager->selectAll();
 
-        $categoryManager = new categoryManager();
+        $categoryManager = new CategoryManager();
         $category = $categoryManager->selectAll();
 
 
@@ -52,10 +53,10 @@ class coffiesController extends AbstractController
      */
     public function show(int $id)
     {
-        $coffiesManager = new coffiesManager();
+        $coffiesManager = new CoffiesManager();
         $coffies = $coffiesManager->selectOneById($id);
 
-        $categoryManager = new categoryManager();
+        $categoryManager = new CategoryManager();
         $category = $categoryManager->selectAll();
 
         return $this->twig->render('coffie/show.html.twig', ['coffies' => $coffies, 'category' => $category]);
@@ -65,9 +66,9 @@ class coffiesController extends AbstractController
 
     public function showByCat(int $category_id)
     {
-        $coffiesManager = new coffiesManager();
+        $coffiesManager = new CoffiesManager();
         $coffies = $coffiesManager->selectBycat($category_id);
-        $categoryManager = new categoryManager();
+        $categoryManager = new CategoryManager();
         $category = $categoryManager->selectAll();
 
         return $this->twig->render('coffie/showByCat.html.twig', ['coffies' => $coffies, 'category' => $category]);
@@ -84,11 +85,10 @@ class coffiesController extends AbstractController
      * @throws \Twig_Error_Syntax
      */
   
-    public function edit(int $id): string
+    public function edit(int $id)
+    {
 
-    {  
-
-        $coffiesManager = new coffiesManager();
+        $coffiesManager = new CoffiesManager();
         $coffies = $coffiesManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -123,11 +123,12 @@ class coffiesController extends AbstractController
      * @throws \Twig_Error_Syntax
      */
     public function add()
-    { $categoryManager = new categoryManager();
+    {
+        $categoryManager = new CategoryManager();
         $category = $categoryManager->selectAll();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $coffiesManager = new coffiesManager();
+            $coffiesManager = new CoffiesManager();
             $coffies = [
                 'name' => $_POST['name'],
                 'image' => $_POST['image'],
@@ -164,7 +165,7 @@ class coffiesController extends AbstractController
      */
     public function delete(int $id)
     {
-        $coffiesManager = new  coffiesManager();
+        $coffiesManager = new  CoffiesManager();
         $coffiesManager->delete($id);
         header('Location:/coffies/index');
     }

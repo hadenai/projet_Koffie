@@ -8,13 +8,14 @@
  */
 
 namespace App\Model;
-use App\Model\coffiesManager;
-use App\Model\categoryManager;
+
+use App\Model\CoffiesManager;
+use App\Model\CategoryManager;
 
 /**
  *
  */
-class coffiesManager extends AbstractManager
+class CoffiesManager extends AbstractManager
 {
     /**
      *
@@ -27,16 +28,15 @@ class coffiesManager extends AbstractManager
     public function __construct()
     {
         parent::__construct(self::TABLE);
-
     }
 
-    public function InnerJoinSelectTable(int $coffies): array
+    /*public function InnerJoinSelectTable(int $coffies): array
     {
     // prepared request
-          $statement = $this->pdo->query("SELECT * FROM  $this->table INNER JOIN categoryManager::TABLE ON `category_id` = `id`");
+          $statement = $this->pdo->query("SELECT * FROM  $this->table INNER JOIN
+        categoryManager::TABLE ON `category_id` = `id`");
            return $statement->execute();
-
-    }
+    }*/
 
 
 
@@ -47,7 +47,10 @@ class coffiesManager extends AbstractManager
     public function insert(array $coffies): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`, `image`, `details`, `acidity`, `caffeine`, `flavor`, `origin`,  `more`,  `price`,  `imageOrigin`, `imageA`, `imageB`, `category_id`) VALUES (:name, :image, :details, :acidity, :caffeine, :flavor, :origin, :more, :price, :imageOrigin, :imageA, :imageB, :category_id)");
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`, `image`, `details`, `acidity`,
+    `caffeine`, `flavor`, `origin`,  `more`,  `price`,  `imageOrigin`, `imageA`, `imageB`, `category_id`) 
+        VALUES (:name, :image, :details, :acidity, :caffeine, :flavor, :origin, :more, :price, :imageOrigin, :imageA,
+         :imageB, :category_id)");
         $statement->bindValue('name', $coffies['name'], \PDO::PARAM_STR);
         $statement->bindValue('image', $coffies['image'], \PDO::PARAM_STR);
         $statement->bindValue('details', $coffies['details'], \PDO::PARAM_STR);
@@ -90,7 +93,10 @@ class coffiesManager extends AbstractManager
     {
 
         // prepared request
-        $statement = $this->pdo->prepare("UPDATE $this->table SET `name` = :name, `image` = :image, `details` = :details, `acidity` = :acidity, `caffeine` = :caffeine, `flavor` = :flavor, `origin` = :origin, `more` = :more, `price` = :price, `imageOrigin` = :imageOrigin, `imageA` = :imageA, `imageB` = :imageB, `category_id` = :category_id WHERE id=:id");
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `name` = :name, `image` = :image,
+        `details` = :details, `acidity` = :acidity, `caffeine` = :caffeine,
+         `flavor` = :flavor, `origin` = :origin, `more` = :more, `price` = :price, `imageOrigin` = :imageOrigin,
+          `imageA` = :imageA, `imageB` = :imageB, `category_id` = :category_id WHERE id=:id");
 
         $statement->bindValue('id', $coffies['id'], \PDO::PARAM_INT);
         $statement->bindValue('name', $coffies['name'], \PDO::PARAM_STR);
@@ -117,14 +123,13 @@ class coffiesManager extends AbstractManager
 
 
 
-     public function selectBycat(int $category_id)
+    public function selectBycat(int $category_id)
     {
         // prepared request
         $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE category_id= :id");
-        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+        /*$statement->bindValue(':id', $id, \PDO::PARAM_INT);*/
         $statement->execute();
 
         return $statement->fetch();
     }
-
 }
