@@ -1,10 +1,6 @@
 <?php
-
-
 namespace App\Controller;
-
 use App\Model\AddContactManager;
-
 class AddContactController extends AbstractController
 {
     public function index()
@@ -14,7 +10,6 @@ class AddContactController extends AbstractController
         $lastNameError = null;
         $emailError = null;
         $yourMessageError = null;
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)) {
             if (empty($_POST['firstname'])) {
                 $error = true;
@@ -49,7 +44,9 @@ class AddContactController extends AbstractController
             'lastNameError'=>$lastNameError,
             'emailError'=>$emailError,
             'yourMessageError'=>$yourMessageError,
-
+            'firstname'=>$_POST['firstname'],
+            'lastname'=>$_POST['lastname'] ,
+            'email'=>$_POST['email'],
         ]);
     }
 }

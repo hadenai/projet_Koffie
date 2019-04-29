@@ -1,9 +1,19 @@
 {% extends "layout.html.twig" %}
 
+{% block stylesheet %}
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/form.css">
+
+{% endblock %}
+
+{% block title %}Contact{% endblock %}
+
+
 {% block content %}
+
     <div class="container">
         <div class="col-lg-12">
-        <h3> Contactez nous! </h3>
+            <h3> Contactez nous! </h3>
         </div>
     </div>
     <div class="container">
@@ -11,28 +21,28 @@
             <form action="" method="post" class="col-12">
                 <div class="form-group">
                     <label for="firstname">First-name </label>
-                    <input name="firstname" type="text" id="firstname" class="form-control {% if firstNameError is defined %}{{'is-invalid'}}{% endif %} ">
+                    <input name="firstname" {% if firstNameError is null %} value="{{ firstname }}" {% endif %}  type="text" id="firstname" class="form-control ">
                     <div class="text-danger"> {{ firstNameError }} </div>
                     {% if firstNameError is defined %}
                     {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="lastname">Last-name </label>
-                    <input name="lastname" type="text" id="lastname" class="form-control {% if lastNameError is defined %}{{'is-invalid'}}{% endif %} ">
+                    <input name="lastname" {% if lastNameError is null %} value="{{ lastname }}" {% endif %} type="text" id="lastname" class="form-control  ">
                     <div class="text-danger"> {{ lastNameError }} </div>
                     {% if lastNameError is defined %}
                     {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="email">Email </label>
-                    <input name="email" type="text" id="email" class="form-control {% if emailError is defined %}{{'is-invalid'}}{% endif %}  ">
+                    <input name="email" {% if emailError is null %} value="{{ email }}" {% endif %} type="text" id="email" class="form-control   ">
                     <div class="text-danger">  {{ emailError }} </div>
                     {% if emailError is defined %}
                     {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="yourmessage">Your-message</label>
-                    <textarea name="yourmessage" id="yourmessage" rows="3" class="form-control {% if yourMessageError is defined %}{{'is-invalid'}}{% endif %} "></textarea>
+                    <textarea name="yourmessage" id="yourmessage" rows="3" class="form-control "></textarea>
                     <div class="text-danger">  {{ yourMessageError }} </div>
                     {% if yourMessageError is defined %}
                     {% endif %}
@@ -51,5 +61,4 @@
             <div class="col-lg-2"><a href="https://www.pinterest.fr/"><img src="https://image.noelshack.com/fichiers/2019/15/3/1554904814-pinterest.png" alt="logo.pinterest" ></a></div>
         </div>
     </div>
-
-{% endblock %}
+{% endblock content %}
