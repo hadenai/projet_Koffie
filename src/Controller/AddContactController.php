@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller;
+
 use App\Model\AddContactManager;
+
 class AddContactController extends AbstractController
 {
     public function index()
