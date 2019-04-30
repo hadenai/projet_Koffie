@@ -11,15 +11,15 @@
 {% block content %}
     <div class="container">
         <div class="title">
-            <div class="d-flex justify-content-center col-lg-12">
+            <div class="d-flex justify-content-center ">
                 <h3> Contactez nous! </h3>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="mx-auto" style="width: 600px;">
+        <div class="mx-auto" style="max-width:530px;">
             <div class="row">
-                <form action="" method="post" class="col-12">
+                <form action="" method="post" class="col-11">
                     <div class="form-group">
                         <label for="firstname">Firstname </label>
                         <input name="firstname" {% if firstNameError is null %} value="{{ firstname }}" {% endif %}  type="text" id="firstname" class="form-control ">
@@ -42,12 +42,12 @@
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        <label for="yourmessage">Yourmessage</label>
+                        <label for="yourmessage">Your message</label>
                         <textarea name="yourmessage" id="yourmessage" rows="3" class="form-control "></textarea>
                         <div class="text-danger">  {{ yourMessageError }} </div>
                         {% if yourMessageError is defined %}
                         {% endif %}
-                        <button class="btn btn-success mt-3" type="submit">Submit form</button>
+                        <button class="btn btn-success mt-3" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
